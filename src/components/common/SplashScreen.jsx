@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import logo from '../../assets/logo.png';
-import splashLogo from '../../assets/splash-logo.png';
+import splashLogo from '../../assets/splash-logo-full.png';
 
 const SplashScreen = ({ onComplete }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             onComplete();
-        }, 1000); // 2.5 seconds total display time
+        }, 1000); // 1.0 seconds total display time
         return () => clearTimeout(timer);
     }, [onComplete]);
 
@@ -59,7 +59,7 @@ const SplashScreen = ({ onComplete }) => {
                     initial={{ scale: 0.5, opacity: 0, filter: 'blur(10px)' }}
                     animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="w-32 md:w-48 h-auto object-contain drop-shadow-2xl"
+                    className="w-48 md:w-64 h-auto object-contain drop-shadow-2xl"
                 />
             </div>
         </motion.div>
