@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
 import logo from '../../assets/logo.png';
-import Button from '../common/Button';
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
     const navLinks = [
@@ -33,55 +29,19 @@ const Navbar = () => {
                     <span className="text-white font-bold text-lg md:text-xl tracking-wide hidden sm:block">Spectra Creative</span>
                 </a>
 
-                {/* Desktop Nav */}
-                <div className="hidden md:flex items-center gap-8">
+                {/* Nav Links - Always Visible */}
+                <div className="flex items-center gap-2 md:gap-8">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.path}
-                            className={`font-medium transition-colors hover:text-brand-third text-white`}
+                            className={`font-medium transition-colors hover:text-brand-third text-white text-[10px] sm:text-xs md:text-base`}
                         >
                             {link.name}
                         </a>
                     ))}
-
                 </div>
-
-                {/* Mobile Toggle */}
-                <button
-                    className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors focus:outline-none z-50 relative"
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label="Toggle menu"
-                >
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
             </div>
-
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden absolute top-full left-0 right-0 mt-2 bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden border border-white/20"
-                    >
-                        <div className="flex flex-col items-center py-6 gap-6">
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.path}
-                                    className="text-gray-800 font-medium text-lg hover:text-brand-primary"
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    {link.name}
-                                </a>
-                            ))}
-
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </nav>
     );
 };
