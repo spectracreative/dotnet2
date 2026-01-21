@@ -30,7 +30,7 @@ const Navbar = () => {
                 </a>
 
                 {/* Nav Links - Always Visible */}
-                <div className="flex items-center gap-2 md:gap-8">
+                <div className="flex items-center gap-2 md:gap-8 mt-2 md:mt-0">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
