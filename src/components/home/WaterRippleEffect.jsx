@@ -177,7 +177,7 @@ const WaterRippleEffect = () => {
         <div ref={containerRef} className="absolute inset-0 z-0 overflow-hidden bg-brand-primary">
             <canvas
                 ref={canvasRef}
-                className="w-full h-full object-cover block"
+                className="w-full h-full object-cover block opacity-40"
             />
             {/* Blending Overlay */}
             <div className="absolute inset-0 bg-brand-primary/20 mix-blend-hard-light pointer-events-none" />
