@@ -36,7 +36,7 @@ const Contact = () => {
     };
 
     const contactInfo = [
-        { icon: Mail, title: 'Email Us', val: 'hello@spectracreative.com', href: 'mailto:creativespectra0@gmail.com', label: 'Send an Email' },
+        { icon: Mail, title: 'Email Us', val: 'creativespectra0@gmail.com', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=creativespectra0@gmail.com', label: 'Send an Email' },
         { icon: Phone, title: 'Call Us', val: '8590552384', href: 'tel:+918590552384', label: 'Call Now' },
         { icon: MessageCircle, title: 'WhatsApp', val: 'Chat on WhatsApp', href: 'https://wa.me/918590552384', label: 'Chat Now' },
         { icon: Instagram, title: 'Instagram', val: '@spectra.ads', href: 'https://www.instagram.com/spectra.ads/?utm_source=ig_web_button_share_sheet', label: 'Follow Us' }
@@ -66,8 +66,8 @@ const Contact = () => {
                             <a
                                 key={index}
                                 href={item.href}
-                                target={['Instagram', 'WhatsApp'].includes(item.title) ? '_blank' : undefined}
-                                rel={['Instagram', 'WhatsApp'].includes(item.title) ? 'noopener noreferrer' : undefined}
+                                target={['Instagram', 'WhatsApp', 'Email Us'].includes(item.title) ? '_blank' : undefined}
+                                rel={['Instagram', 'WhatsApp', 'Email Us'].includes(item.title) ? 'noopener noreferrer' : undefined}
                                 className="flex flex-col items-center text-center gap-4 p-6 bg-white/60 backdrop-blur-md rounded-3xl shadow-sm border border-white/40 hover:shadow-lg hover:border-brand-primary/30 transition-all duration-300 group cursor-pointer"
                             >
                                 <div className="w-14 h-14 bg-brand-primary text-white rounded-full flex items-center justify-center group-hover:bg-brand-secondary transition-colors shrink-0 shadow-lg">
