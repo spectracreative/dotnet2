@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/splash-logo-full.png';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -25,8 +25,8 @@ const Navbar = () => {
         <nav className={`fixed top-0 w-full z-50 transition-all duration-300 bg-[#211282] border-b border-white/10 rounded-b-[2.5rem] ${scrolled ? 'shadow-lg py-3' : 'shadow-md py-4'}`}>
             <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
                 <a href="#home" className="flex items-center gap-3">
-                    <img src={logo} alt="Spectra Creative Logo" className="h-10 md:h-12 w-auto object-contain" />
-                    <span className="text-white font-bold text-lg md:text-xl tracking-wide hidden sm:block">Spectra Creative</span>
+                    <img src={logo} alt="Spectra Creative Logo" className="h-10 md:h-12 w-auto object-contain brightness-0 invert" />
+                    <span className="text-white font-bold text-lg md:text-xl tracking-wide hidden sm:block"></span>
                 </a>
 
                 {/* Nav Links - Always Visible */}
