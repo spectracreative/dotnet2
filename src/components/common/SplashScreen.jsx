@@ -7,7 +7,7 @@ const SplashScreen = ({ onComplete }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             onComplete();
-        }, 1000); // 1.0 seconds total display time
+        }, 1500); // 1.0 seconds total display time
         return () => clearTimeout(timer);
     }, [onComplete]);
 
@@ -56,10 +56,10 @@ const SplashScreen = ({ onComplete }) => {
                 <motion.img
                     src={splashLogo}
                     alt="Spectra Creative"
-                    initial={{ scale: 0.5, opacity: 0, filter: 'blur(10px)' }}
-                    animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
+                    initial={{ scale: 0.5, opacity: 0, filter: 'blur(10px) brightness(0) invert(1)' }}
+                    animate={{ scale: 1, opacity: 1, filter: 'blur(0px) brightness(0) invert(1)' }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="w-48 md:w-64 h-auto object-contain drop-shadow-2xl"
+                    className="w-64 md:w-96 h-auto object-contain drop-shadow-2xl"
                 />
             </div>
         </motion.div>
