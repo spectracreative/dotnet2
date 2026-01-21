@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import logo from '../../assets/logo.png';
+import splashLogo from '../../assets/splash-logo.png';
 
 const SplashScreen = ({ onComplete }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             onComplete();
-        }, 2500); // 2.5 seconds total display time
+        }, 1000); // 2.5 seconds total display time
         return () => clearTimeout(timer);
     }, [onComplete]);
 
@@ -51,16 +52,15 @@ const SplashScreen = ({ onComplete }) => {
                 />
             </div>
 
-            <div className="relative z-10 text-center">
-                <motion.h1
+            <div className="relative z-10 text-center flex justify-center">
+                <motion.img
+                    src={splashLogo}
+                    alt="Spectra Creative"
                     initial={{ scale: 0.5, opacity: 0, filter: 'blur(10px)' }}
                     animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="font-bold text-white text-5xl md:text-7xl tracking-wide leading-tight"
-                >
-                    <div className="mb-2">Spectra</div>
-                    <div>Creative</div>
-                </motion.h1>
+                    className="w-32 md:w-48 h-auto object-contain drop-shadow-2xl"
+                />
             </div>
         </motion.div>
     );
