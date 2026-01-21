@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import logo from '../../assets/logo.png';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
@@ -19,11 +19,17 @@ const Footer = () => {
                     <div>
                         <h3 className="text-lg font-bold mb-6">Quick Links</h3>
                         <ul className="space-y-3">
-                            {['Home', 'About Us', 'Projects', 'Showcase', 'Packages'].map((item) => (
-                                <li key={item}>
-                                    <Link to={`/${item.toLowerCase().replace(' ', '-')}`} className="text-gray-300 hover:text-white transition-colors">
-                                        {item}
-                                    </Link>
+                            {[
+                                { name: 'Home', path: '#home' },
+                                { name: 'About Us', path: '#about' },
+                                { name: 'Projects', path: '#projects' },
+                                { name: 'Showcase', path: '#showcase' },
+                                { name: 'Packages', path: '#packages' }
+                            ].map((link) => (
+                                <li key={link.name}>
+                                    <a href={link.path} className="text-gray-300 hover:text-white transition-colors">
+                                        {link.name}
+                                    </a>
                                 </li>
                             ))}
                         </ul>
@@ -35,7 +41,7 @@ const Footer = () => {
                         <ul className="space-y-4">
                             <li className="flex items-center gap-3 text-gray-300">
                                 <Mail size={18} />
-                                <span>hello@spectracreative.com</span>
+                                <span>creativespectra0@gmail.com</span>
                             </li>
                             <li className="flex items-center gap-3 text-gray-300">
                                 <Phone size={18} />
@@ -43,7 +49,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-start gap-3 text-gray-300">
                                 <MapPin size={18} className="mt-1" />
-                                <span>123 Creative St, Kerala, India</span>
+                                <span>Malappuram, Kerala, India</span>
                             </li>
                         </ul>
                     </div>
