@@ -50,6 +50,50 @@ const Home = () => {
                         transition={{ duration: 2, delay: 0.5 }}
                         className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-brand-secondary rounded-full blur-3xl"
                     />
+
+                    {/* SVG Design Elements */}
+                    <motion.svg
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.4 }}
+                        transition={{ delay: 1, duration: 2 }}
+                        className="absolute top-20 left-10 w-24 h-24 text-brand-primary/20"
+                        viewBox="0 0 100 100"
+                        fill="currentColor"
+                    >
+                        <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="2" fill="none" />
+                        <circle cx="50" cy="50" r="20" stroke="currentColor" strokeWidth="2" fill="none" />
+                    </motion.svg>
+
+                    <motion.svg
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 0.6, x: 0 }}
+                        transition={{ delay: 1.2, duration: 2 }}
+                        className="absolute bottom-20 right-10 w-64 h-64 text-brand-secondary/10"
+                        viewBox="0 0 200 200"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M10 100 Q 50 10 90 100 T 170 100" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path d="M10 120 Q 50 30 90 120 T 170 120" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path d="M10 140 Q 50 50 90 140 T 170 140" stroke="currentColor" strokeWidth="4" fill="none" />
+                    </motion.svg>
+
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.3 }}
+                        transition={{ delay: 1.5, duration: 2 }}
+                        className="absolute top-1/3 right-1/4 w-12 h-12 border-4 border-brand-primary/20 rounded-full"
+                        style={{ borderStyle: 'dotted' }}
+                    />
+
+                    <svg className="absolute top-0 right-0 w-full h-full pointer-events-none opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" />
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+                    </svg>
                 </div>
 
                 <div className="container mx-auto px-4 md:px-8 relative z-10 flex flex-col items-center text-center">
