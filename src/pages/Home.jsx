@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../components/common/Button';
 import { ArrowRight } from 'lucide-react';
+import WaterRippleEffect from '../components/home/WaterRippleEffect';
 
 const TextRotator = ({ text }) => {
     const [index, setIndex] = useState(0);
@@ -36,21 +37,8 @@ const Home = () => {
         <div className="overflow-hidden">
             {/* Hero Section */}
             <section className="relative min-h-screen flex items-center pt-20">
-                {/* Abstract Background Shapes */}
-                <div className="absolute inset-0 z-0 overflow-hidden">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 0.1, scale: 1 }}
-                        transition={{ duration: 2 }}
-                        className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] bg-brand-primary rounded-full blur-3xl"
-                    />
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 0.1, scale: 1 }}
-                        transition={{ duration: 2, delay: 0.5 }}
-                        className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-brand-secondary rounded-full blur-3xl"
-                    />
-                </div>
+                {/* Water Ripple Background */}
+                <WaterRippleEffect />
 
                 <div className="container mx-auto px-4 md:px-8 relative z-10 flex flex-col items-center text-center">
                     <motion.div
