@@ -4,6 +4,7 @@ import { Target, Building, Mic, GraduationCap, Globe, Camera, ChevronLeft, Chevr
 import landingBg from '../assets/landing-bg.jfif';
 import teamImg from '../assets/team.png';
 import bgPattern from '../assets/bg-pattern.jpg';
+import bgLogo from '../assets/splash-logo.png';
 
 const placeholderImages = [
     landingBg,
@@ -99,8 +100,13 @@ const Mission30 = () => {
     };
 
     return (
-        <div className="pt-24 pb-20 min-h-screen bg-brand-third/30">
-            <div className="container mx-auto px-4 md:px-8">
+        <div className="pt-24 pb-20 min-h-screen bg-brand-third/30 relative overflow-hidden">
+            {/* Background Texture Logo */}
+            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] md:w-[1200px] opacity-[0.03] pointer-events-none z-0">
+                <img src={bgLogo} alt="" className="w-full h-auto" />
+            </div>
+
+            <div className="container mx-auto px-4 md:px-8 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
