@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import sipatureThumb from '../assets/sipature-thumb.png';
 
 const projectsList = [
-    { title: "Sipature", type: "Web Design", color: "bg-teal-600", url: "https://basiii73.github.io/sip23/", image: sipatureThumb },
+    { title: "Sipature", type: "Web Design", color: "bg-teal-600", url: "https://www.sipature.com/", image: sipatureThumb },
     { title: "Neon Tech", type: "Web Design", color: "bg-blue-500" },
     { title: "Eco Life", type: "Branding", color: "bg-green-500" },
     { title: "Urban Fit", type: "App UI", color: "bg-orange-500" },
