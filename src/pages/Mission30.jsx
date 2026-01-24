@@ -5,7 +5,7 @@ import landingBg from '../assets/landing-bg.jfif';
 import teamImg from '../assets/team.png';
 import bgPattern from '../assets/bg-pattern.jpg';
 
-const foundationImages = [
+const placeholderImages = [
     landingBg,
     teamImg,
     bgPattern
@@ -17,37 +17,48 @@ const timelineData = [
         title: 'Foundation',
         description: 'Spectra Creative establishes itself as a premier Digital Marketing Agency, setting the standard for innovation and client success.',
         icon: Target,
-        hasGallery: true
+        hasGallery: true,
+        images: placeholderImages
     },
     {
         year: '2027',
         title: 'New Headquarters',
         description: 'Opening our own dedicated office space to foster creativity and collaboration.',
         icon: Building,
+        hasGallery: true,
+        images: placeholderImages
     },
     {
         year: '2027-2028',
         title: 'Spectra Studio',
         description: 'Launching a comprehensive creative hub featuring an Editing Suite, Product Studio, and Podcast Studio available for the public and collaborators.',
         icon: Mic,
+        hasGallery: true,
+        images: placeholderImages
     },
     {
         year: '2028',
         title: 'Spectra Academy',
         description: 'Empowering the next generation of creatives through specialized training and workshops at Spectra Academy.',
         icon: GraduationCap,
+        hasGallery: true,
+        images: placeholderImages
     },
     {
         year: '2029',
         title: 'Global Expansion',
         description: 'Establishing branches in different parts of the country and expanding our footprint abroad.',
         icon: Globe,
+        hasGallery: true,
+        images: placeholderImages
     },
     {
         year: '2030',
         title: 'Mission Complete',
         description: 'Solidifying "Spectra Creative" as a globally recognized brand, celebrated for professional imagery and excellence.',
         icon: Camera,
+        hasGallery: true,
+        images: placeholderImages
     },
 ];
 
@@ -72,8 +83,10 @@ const Mission30 = () => {
     const [isGalleryOpen, setIsGalleryOpen] = useState(false);
     const [currentIdx, setCurrentIdx] = useState(0);
     const [direction, setDirection] = useState(0);
+    const [activeImages, setActiveImages] = useState(placeholderImages);
 
-    const openGallery = () => {
+    const openGallery = (images) => {
+        setActiveImages(images);
         setCurrentIdx(0);
         setIsGalleryOpen(true);
     };
@@ -82,7 +95,7 @@ const Mission30 = () => {
 
     const paginate = (newDirection) => {
         setDirection(newDirection);
-        setCurrentIdx((prev) => (prev + newDirection + foundationImages.length) % foundationImages.length);
+        setCurrentIdx((prev) => (prev + newDirection + activeImages.length) % activeImages.length);
     };
 
     return (
@@ -137,7 +150,7 @@ const Mission30 = () => {
                                             <motion.button
                                                 whileHover={{ scale: 1.05 }}
                                                 whileTap={{ scale: 0.95 }}
-                                                onClick={openGallery}
+                                                onClick={() => openGallery(item.images)}
                                                 className={`inline-flex items-center gap-2 px-4 py-2 bg-brand-primary text-white text-sm font-medium rounded-lg hover:bg-brand-secondary transition-colors ${index % 2 === 0 ? 'float-right' : ''}`}
                                             >
                                                 <ImageIcon size={16} />
@@ -182,7 +195,7 @@ const Mission30 = () => {
                                 <AnimatePresence initial={false} custom={direction} mode="popLayout">
                                     <motion.img
                                         key={currentIdx}
-                                        src={foundationImages[currentIdx]}
+                                        src={activeImages[currentIdx]}
                                         custom={direction}
                                         variants={variants}
                                         initial="enter"
@@ -221,7 +234,7 @@ const Mission30 = () => {
 
                             {/* Indicators */}
                             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                                {foundationImages.map((_, idx) => (
+                                {activeImages.map((_, idx) => (
                                     <div
                                         key={idx}
                                         className={`w-2 h-2 rounded-full transition-all ${idx === currentIdx ? 'bg-white w-6' : 'bg-white/50'}`}
