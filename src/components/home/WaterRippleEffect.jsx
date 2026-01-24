@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import bgImage from '../../assets/landing-bg.jpg';
+import bgImage from '../../assets/landing-bg.jfif';
 
 const WaterRippleEffect = () => {
     const canvasRef = useRef(null);
