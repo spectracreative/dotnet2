@@ -102,8 +102,13 @@ const Mission30 = () => {
     return (
         <div className="pt-24 pb-20 min-h-screen bg-brand-third/30 relative overflow-hidden">
             {/* Background Texture Logo */}
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] md:w-[1200px] opacity-[0.03] pointer-events-none z-0">
-                <img src={bgLogo} alt="" className="w-full h-auto" />
+            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] md:w-[1200px] opacity-[0.05] pointer-events-none z-0">
+                <img
+                    src={bgLogo}
+                    alt=""
+                    className="w-full h-auto"
+                    style={{ filter: 'invert(8%) sepia(100%) saturate(7000%) hue-rotate(247deg) brightness(100%) contrast(144%)' }}
+                />
             </div>
 
             <div className="container mx-auto px-4 md:px-8 relative z-10">
