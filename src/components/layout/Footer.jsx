@@ -1,6 +1,7 @@
 
 import logo from '../../assets/logo.png';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -20,16 +21,16 @@ const Footer = () => {
                         <h3 className="text-lg font-bold mb-6">Quick Links</h3>
                         <ul className="space-y-3">
                             {[
-                                { name: 'Home', path: '#home' },
-                                { name: 'About Us', path: '#about' },
-                                { name: 'Projects', path: '#projects' },
-                                { name: 'Showcase', path: '#showcase' },
-                                { name: 'Packages', path: '#packages' }
+                                { name: 'Home', path: '/#home' },
+                                { name: 'About Us', path: '/#about' },
+                                { name: 'Projects', path: '/#projects' },
+                                { name: 'Showcase', path: '/#showcase' },
+                                { name: 'Packages', path: '/#packages' }
                             ].map((link) => (
                                 <li key={link.name}>
-                                    <a href={link.path} className="text-gray-300 hover:text-white transition-colors">
+                                    <Link to={link.path} className="text-gray-300 hover:text-white transition-colors">
                                         {link.name}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
