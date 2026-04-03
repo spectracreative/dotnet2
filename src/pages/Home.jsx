@@ -9,23 +9,51 @@ const TextRotator = ({ text }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prev) => (prev + 1) % text.length);
-        }, 3000);
+        }, 3500); 
         return () => clearInterval(interval);
     }, [text]);
 
+    const currentText = text[index];
+
     return (
-        <span className="inline-flex min-w-[300px] justify-center text-center">
+        <span className="inline-flex justify-center text-center text-[#8b1a85]">
             <AnimatePresence mode='wait'>
-                <motion.span
-                    key={text[index]}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="text-[#8b1a85]"
+                <motion.div
+                    key={index}
+                    className="flex"
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={{
+                        visible: { transition: { staggerChildren: 0.03 } },
+                        hidden: {},
+                        exit: { transition: { staggerChildren: 0.015 } }
+                    }}
                 >
-                    {text[index]}
-                </motion.span>
+                    {currentText.split('').map((char, i) => (
+                        <motion.span
+                            key={`${index}-${i}`}
+                            variants={{
+                                hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+                                visible: { 
+                                    opacity: 1, 
+                                    y: 0, 
+                                    filter: "blur(0px)", 
+                                    transition: { duration: 0.4, ease: "easeOut" } 
+                                },
+                                exit: { 
+                                    opacity: 0, 
+                                    y: -30, 
+                                    filter: "blur(8px)", 
+                                    transition: { duration: 0.3, ease: "easeIn" } 
+                                }
+                            }}
+                            className={char === ' ' ? 'w-[0.3em]' : 'inline-block'}
+                        >
+                            {char}
+                        </motion.span>
+                    ))}
+                </motion.div>
             </AnimatePresence>
         </span>
     );
