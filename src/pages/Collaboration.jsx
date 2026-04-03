@@ -54,7 +54,7 @@ const Collaboration = () => {
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ duration: 0.8 }}
                     >
                         <h1 className="text-5xl font-bold leading-tight mb-6 text-white">Let's <span className="text-[#8b1a85]">Collaborate</span> & Create Magic.</h1>
@@ -72,7 +72,7 @@ const Collaboration = () => {
                                     key={i} 
                                     initial={{ opacity: 0, y: 10 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: false }}
                                     transition={{ delay: 0.3 + (i * 0.1) }}
                                     className="flex gap-4"
                                 >
@@ -91,7 +91,7 @@ const Collaboration = () => {
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="bg-[#141414] p-8 rounded-[2.5rem] shadow-2xl border border-white/5"
                     >

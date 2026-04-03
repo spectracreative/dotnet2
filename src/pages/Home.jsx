@@ -102,7 +102,7 @@ const Home = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ duration: 0.8 }}
                         className="text-center max-w-2xl mx-auto mb-16"
                     >
@@ -120,7 +120,7 @@ const Home = () => {
                                 key={i}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false }}
                                 transition={{ delay: i * 0.1 }}
                                 className="group p-8 rounded-2xl bg-[#141414] border border-white/5 hover:border-[#51084d]/50 transition-all duration-500 hover:bg-[#1a1a1a]"
                             >

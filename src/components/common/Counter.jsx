@@ -3,7 +3,7 @@ import { useInView, animate } from 'framer-motion';
 
 const Counter = ({ from = 0, to, duration = 2, delay = 0 }) => {
     const ref = useRef(null);
-    const inView = useInView(ref, { once: true, margin: "-50px" });
+    const inView = useInView(ref, { once: false, margin: "-50px" });
 
     useEffect(() => {
         if (inView) {

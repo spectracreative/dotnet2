@@ -8,7 +8,7 @@ const About = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.8 }}
                     className="max-w-4xl mx-auto text-center mb-16"
                 >
@@ -22,7 +22,7 @@ const About = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="max-w-3xl mx-auto text-center"
                 >
@@ -46,7 +46,7 @@ const About = () => {
                         }}
                         initial="hidden"
                         whileInView="show"
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: false, amount: 0.1 }}
                         className="flex flex-col sm:flex-row justify-center gap-6 mt-10"
                     >
                         <motion.div 

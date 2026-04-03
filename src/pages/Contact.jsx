@@ -47,7 +47,7 @@ const Contact = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.8 }}
                     className="text-center mb-16"
                 >
@@ -66,6 +66,7 @@ const Contact = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false }}
                         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                     >
                         {contactInfo.map((item, index) => (
@@ -91,7 +92,7 @@ const Contact = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.1 }}
+                        viewport={{ once: false, amount: 0.1 }}
                         transition={{ delay: 0.2, duration: 0.8 }}
                         className="w-full bg-[#141414] rounded-[2.5rem] shadow-2xl p-8 md:p-12 border border-white/5"
                     >
