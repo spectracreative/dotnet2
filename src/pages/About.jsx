@@ -34,7 +34,7 @@ const About = () => {
                         Every pixel we place, every line of code we write, is infused with intention. We don't just make things look good; we make them work beautifully.
                     </p>
 
-                    <motion.div 
+                    <motion.div
                         variants={{
                             hidden: { opacity: 0 },
                             show: {
@@ -49,7 +49,7 @@ const About = () => {
                         viewport={{ once: false, amount: 0.1 }}
                         className="flex flex-col sm:flex-row justify-center gap-6 mt-10"
                     >
-                        <motion.div 
+                        <motion.div
                             variants={{
                                 hidden: { opacity: 0, y: 20 },
                                 show: { opacity: 1, y: 0 }
@@ -61,7 +61,7 @@ const About = () => {
                             </h4>
                             <p className="text-sm text-gray-500 uppercase tracking-widest">Projects Completed</p>
                         </motion.div>
-                        <motion.div 
+                        <motion.div
                             variants={{
                                 hidden: { opacity: 0, y: 20 },
                                 show: { opacity: 1, y: 0 }
@@ -69,7 +69,7 @@ const About = () => {
                             className="p-6 bg-[#141414] rounded-xl border border-white/5 min-w-[200px]"
                         >
                             <h4 className="font-bold text-4xl text-[#8b1a85] mb-2">
-                                <Counter to={100} />%
+                                <Counter to={95} />%
                             </h4>
                             <p className="text-sm text-gray-500 uppercase tracking-widest">Client Satisfaction</p>
                         </motion.div>
