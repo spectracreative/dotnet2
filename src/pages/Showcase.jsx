@@ -23,7 +23,7 @@ const ShowcaseCard = ({ flyer, index, total, scrollYProgress, setSelectedFlyer }
   const stackedRotate = index % 2 === 0 ? -(index * 2) : (index * 2);
 
   // Spread state properties
-  const spreadX = offset * 120;
+  const spreadX = offset * 80;
   const spreadY = Math.abs(offset) * 15;
   const spreadRotate = offset * 4;
 
@@ -53,7 +53,7 @@ const ShowcaseCard = ({ flyer, index, total, scrollYProgress, setSelectedFlyer }
         boxShadow: "0 25px 50px -12px rgba(81, 8, 77, 0.5)",
         borderColor: "#51084d"
       }}
-      className="absolute w-40 md:w-56 h-56 md:h-72 bg-[#141414] rounded-xl shadow-2xl border border-white/10 cursor-pointer overflow-hidden transition-colors"
+      className="absolute w-28 md:w-44 h-44 md:h-64 bg-[#141414] rounded-xl shadow-2xl border border-white/10 cursor-pointer overflow-hidden transition-colors"
     >
       {flyer.src ? (
         flyer.src.toLowerCase().endsWith('.mov') || flyer.src.toLowerCase().endsWith('.mp4') || flyer.src.toLowerCase().endsWith('.webm') ? (
