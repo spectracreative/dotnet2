@@ -6,12 +6,10 @@ import Contact from './Contact';
 import Collaboration from './Collaboration';
 import BrandGallery from '../components/home/BrandGallery';
 import LogoDisplay from '../components/home/LogoDisplay';
-import ScrollIntro from '../components/home/ScrollIntro';
 
 const HomeContent = () => {
     return (
         <>
-            <ScrollIntro />
             <section id="home">
                 <Home />
             </section>
