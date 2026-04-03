@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Counter from '../components/common/Counter';
 
 const About = () => {
     return (
@@ -30,16 +31,46 @@ const About = () => {
                         Every pixel we place, every line of code we write, is infused with intention. We don't just make things look good; we make them work beautifully.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row justify-center gap-6 mt-10">
-                        <div className="p-6 bg-[#141414] rounded-xl border border-white/5 min-w-[200px]">
-                            <h4 className="font-bold text-4xl text-[#8b1a85] mb-2">50+</h4>
+                    <motion.div 
+                        variants={{
+                            hidden: { opacity: 0 },
+                            show: {
+                                opacity: 1,
+                                transition: {
+                                    staggerChildren: 0.2
+                                }
+                            }
+                        }}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, margin: "-100px" }}
+                        className="flex flex-col sm:flex-row justify-center gap-6 mt-10"
+                    >
+                        <motion.div 
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                show: { opacity: 1, y: 0 }
+                            }}
+                            className="p-6 bg-[#141414] rounded-xl border border-white/5 min-w-[200px]"
+                        >
+                            <h4 className="font-bold text-4xl text-[#8b1a85] mb-2">
+                                <Counter to={50} />+
+                            </h4>
                             <p className="text-sm text-gray-500 uppercase tracking-widest">Projects Completed</p>
-                        </div>
-                        <div className="p-6 bg-[#141414] rounded-xl border border-white/5 min-w-[200px]">
-                            <h4 className="font-bold text-4xl text-[#8b1a85] mb-2">100%</h4>
+                        </motion.div>
+                        <motion.div 
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                show: { opacity: 1, y: 0 }
+                            }}
+                            className="p-6 bg-[#141414] rounded-xl border border-white/5 min-w-[200px]"
+                        >
+                            <h4 className="font-bold text-4xl text-[#8b1a85] mb-2">
+                                <Counter to={100} />%
+                            </h4>
                             <p className="text-sm text-gray-500 uppercase tracking-widest">Client Satisfaction</p>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </motion.div>
             </div>
         </div>
