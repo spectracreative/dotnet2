@@ -14,6 +14,23 @@ const flyers = [
   { src: flyer5, title: 'Brand Asset #6', type: 'Branding' },
 ];
 
+// Double the flyers so we have 10 cards for a dense scatter collage
+const finalFlyers = [...flyers, ...flyers];
+
+// Predefined coordinate map for an organic chaotic scatter look
+const scatterCoordinates = [
+  { x: -220, y: -180, r: -15 }, // Top left
+  { x: 200, y: -200, r: 12 },   // Top right
+  { x: -280, y: 50, r: -5 },    // Far left
+  { x: 250, y: 80, r: 25 },     // Far right
+  { x: -120, y: 180, r: -8 },   // Bottom left
+  { x: 150, y: 220, r: 15 },    // Bottom right
+  { x: -50, y: -60, r: 5 },     // Center high
+  { x: 60, y: 70, r: -12 },     // Center low
+  { x: -180, y: 280, r: -20 },  // Far bottom left
+  { x: 180, y: -40, r: 18 },    // Mid top right
+];
+
 const ShowcaseCard = ({ flyer, index, total, scrollYProgress, setSelectedFlyer }) => {
   const offset = index - Math.floor(total / 2);
 
@@ -22,10 +39,11 @@ const ShowcaseCard = ({ flyer, index, total, scrollYProgress, setSelectedFlyer }
   const stackedY = -index * 15;
   const stackedRotate = index % 2 === 0 ? -(index * 2) : (index * 2);
 
-  // Spread state properties
-  const spreadX = offset * 80;
-  const spreadY = Math.abs(offset) * 15;
-  const spreadRotate = offset * 4;
+  // Spread state properties from predefined organic map
+  const coord = scatterCoordinates[index % scatterCoordinates.length];
+  const spreadX = coord.x;
+  const spreadY = coord.y;
+  const spreadRotate = coord.r;
 
   // Map scroll progress to transform values
   // [0, 1] goes from entering viewport bottom to leaving viewport top
@@ -88,14 +106,14 @@ const Showcase = () => {
           </h1>
         </div>
         
-        {/* Stacked card layout with scroll-driven spread */}
+        {/* Stacked card layout with scroll-driven scatter explosion */}
         <div className="relative flex justify-center items-center h-[600px] w-full">
-          {flyers.map((flyer, i) => (
+          {finalFlyers.map((flyer, i) => (
             <ShowcaseCard 
               key={i} 
               flyer={flyer} 
               index={i} 
-              total={flyers.length} 
+              total={finalFlyers.length} 
               scrollYProgress={scrollYProgress} 
               setSelectedFlyer={setSelectedFlyer} 
             />
