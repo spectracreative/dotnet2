@@ -3,16 +3,43 @@ import { motion, AnimatePresence } from 'framer-motion';
 import flyer1 from '../assets/flyers/flyer1.jpg';
 import flyer2 from '../assets/flyers/flyer2.jpg';
 import flyer3 from '../assets/flyers/flyer3.png';
-import v1 from '../assets/flyers/v1.mov';
+
 
 const flyers = [
   { src: flyer1, title: 'Hearing Loss Treatment', type: 'Flyer Design' },
   { src: flyer2, title: 'Republic Day Offer', type: 'Promotion' },
   { src: flyer3, title: 'Golden Blend Tea', type: 'Product Design' },
-  { src: v1, title: 'Commercial Video', type: 'Production' },
   { src: null, title: 'Brand Asset #5', type: 'Social Media' },
   { src: null, title: 'Brand Asset #6', type: 'Branding' },
 ];
+
+const cardVariants = {
+  initial: (i) => ({
+    x: i * 20,
+    y: -i * 15,
+    rotate: i % 2 === 0 ? -(i * 2) : (i * 2),
+    opacity: 0,
+    scale: 0.9,
+    zIndex: flyers.length - i
+  }),
+  animate: (i) => ({
+    opacity: 1,
+    scale: 1,
+    transition: { delay: i * 0.1 }
+  }),
+  hover: (i) => {
+    const total = flyers.length;
+    const offset = i - Math.floor(total / 2);
+    return {
+      x: offset * 220,
+      y: Math.abs(offset) * 15,
+      rotate: offset * 4,
+      scale: 1,
+      zIndex: 10,
+      transition: { type: "spring", stiffness: 200, damping: 20 }
+    };
+  }
+};
 
 const Showcase = () => {
   const [selectedFlyer, setSelectedFlyer] = useState(null);
@@ -24,43 +51,30 @@ const Showcase = () => {
           <h1 className="text-4xl font-bold text-white">
             Projects <span className="text-[#51084d]">Showcase</span>
           </h1>
-          <p className="text-gray-500 mt-4">A curated collection of our recent work.</p>
+
         </div>
-        {/* Stacked card layout */}
-        <div className="relative flex justify-center items-center h-[500px]">
+        {/* Stacked card layout with spread on container hover */}
+        <motion.div 
+          className="relative flex justify-center items-center h-[500px] w-full"
+          initial="initial"
+          animate="animate"
+          whileHover="hover"
+        >
           {flyers.map((flyer, i) => (
             <motion.div
               key={i}
+              custom={i}
+              variants={cardVariants}
               layoutId={flyer.title}
               onClick={() => setSelectedFlyer(flyer)}
-              initial={{ 
-                x: i * 20, 
-                y: -i * 15, 
-                rotate: i % 2 === 0 ? -(i*2) : (i*2),
-                opacity: 0,
-                scale: 0.9
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1
-              }}
               whileHover={{ 
-                scale: 1.08, 
-                x: i * 25 + (i % 2 === 0 ? -30 : 30),
-                y: -i * 15 - 20,
+                scale: 1.1, 
                 rotate: 0, 
-                zIndex: 50 
-              }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 300, 
-                damping: 20,
-                delay: i * 0.1 
+                y: -30,
+                zIndex: 100,
+                transition: { type: "spring", stiffness: 300, damping: 15 }
               }}
               className="absolute w-72 h-[22rem] bg-[#141414] rounded-xl shadow-2xl border border-white/10 cursor-pointer overflow-hidden transition-colors hover:border-[#51084d]"
-              style={{
-                zIndex: flyers.length - i,
-              }}
             >
               {flyer.src ? (
                 flyer.src.toLowerCase().endsWith('.mov') || flyer.src.toLowerCase().endsWith('.mp4') || flyer.src.toLowerCase().endsWith('.webm') ? (
@@ -73,13 +87,10 @@ const Showcase = () => {
                   Asset {i + 1}
                 </div>
               )}
-              <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-2">
-                <h4 className="font-bold text-sm">{flyer.title}</h4>
-                <p className="text-xs text-[#51084d]">{flyer.type}</p>
-              </div>
+
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Modal */}
