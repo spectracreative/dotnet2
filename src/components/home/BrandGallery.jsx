@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import venturePointLogo from '../../assets/brands/venture_point.png';
 
 const brands = [
-    { type: 'text', value: 'Signature', className: 'font-handwriting' },
+    { type: 'text', value: 'Sipature', className: 'font-handwriting' },
     { type: 'image', src: venturePointLogo, alt: 'Venture Point' },
 ];
 
