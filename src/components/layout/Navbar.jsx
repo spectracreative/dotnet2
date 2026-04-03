@@ -26,7 +26,7 @@ const Navbar = () => {
 
     return (
         <div className="fixed top-0 w-full z-50 px-4 md:px-8 pt-3">
-            <nav className={`mx-auto max-w-7xl transition-all duration-500 rounded-2xl border ${scrolled ? 'bg-[#0a0a0a]/80 backdrop-blur-xl shadow-2xl shadow-black/30 py-2.5 border-white/10' : 'bg-white/5 backdrop-blur-lg shadow-lg py-3 border-white/10'}`}>
+            <nav className={`mx-auto max-w-7xl transition-all duration-500 rounded-2xl border ${scrolled ? 'bg-[#51084d]/90 backdrop-blur-xl shadow-2xl shadow-black/30 py-2.5 border-white/20' : 'bg-[#51084d]/40 backdrop-blur-lg shadow-lg py-3 border-white/20'}`}>
                 <div className="px-5 md:px-8 flex justify-between items-center relative">
                     <Link to="/#home" className="flex items-center gap-3">
                         <img src={logoWhite} alt="Dotnet Logo" className="h-10 md:h-12 w-auto object-contain transition-all duration-300" />
