@@ -1,15 +1,6 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import teamImage from '../assets/team.png';
+import { motion } from 'framer-motion';
 
 const About = () => {
-    const imgRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: imgRef,
-        offset: ["start end", "end start"]
-    });
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
-
     return (
         <div className="pt-24 pb-20">
             <div className="container mx-auto px-4 md:px-8">
@@ -25,49 +16,31 @@ const About = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <motion.div
-                        ref={imgRef}
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="bg-gradient-to-tr from-[#51084d] to-[#51084d] rounded-3xl p-1 rotate-2 hover:rotate-0 transition-transform duration-500"
-                    >
-                        <div className="bg-[#0a0a0a] rounded-[22px] overflow-hidden h-96 flex items-center justify-center">
-                            <motion.img
-                                style={{ scale }}
-                                src={teamImage}
-                                alt="Dotnet Team"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="max-w-3xl mx-auto text-center"
+                >
+                    <h2 className="text-3xl font-bold mb-6 text-white">Why We Exist</h2>
+                    <p className="text-gray-400 mb-6 leading-relaxed">
+                        In a crowded digital landscape, standing out is not just an option—it's a necessity. We noticed that many brands struggle to align their visual identity with their core values. We bridge that gap.
+                    </p>
+                    <p className="text-gray-400 mb-6 leading-relaxed">
+                        Every pixel we place, every line of code we write, is infused with intention. We don't just make things look good; we make them work beautifully.
+                    </p>
 
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-3xl font-bold mb-6 text-white">Why We Exist</h2>
-                        <p className="text-gray-400 mb-6 leading-relaxed">
-                            In a crowded digital landscape, standing out is not just an option—it's a necessity. We noticed that many brands struggle to align their visual identity with their core values. We bridge that gap.
-                        </p>
-                        <p className="text-gray-400 mb-6 leading-relaxed">
-                            Every pixel we place, every line of code we write, is infused with intention. We don't just make things look good; we make them work beautifully.
-                        </p>
-
-                        <div className="grid grid-cols-2 gap-6 mt-8">
-                            <div className="p-4 bg-[#141414] rounded-xl border border-white/5">
-                                <h4 className="font-bold text-3xl text-[#8b1a85] mb-1">50+</h4>
-                                <p className="text-sm text-gray-500">Projects Completed</p>
-                            </div>
-                            <div className="p-4 bg-[#141414] rounded-xl border border-white/5">
-                                <h4 className="font-bold text-3xl text-[#8b1a85] mb-1">100%</h4>
-                                <p className="text-sm text-gray-500">Client Satisfaction</p>
-                            </div>
+                    <div className="flex flex-col sm:flex-row justify-center gap-6 mt-10">
+                        <div className="p-6 bg-[#141414] rounded-xl border border-white/5 min-w-[200px]">
+                            <h4 className="font-bold text-4xl text-[#8b1a85] mb-2">50+</h4>
+                            <p className="text-sm text-gray-500 uppercase tracking-widest">Projects Completed</p>
                         </div>
-                    </motion.div>
-                </div>
+                        <div className="p-6 bg-[#141414] rounded-xl border border-white/5 min-w-[200px]">
+                            <h4 className="font-bold text-4xl text-[#8b1a85] mb-2">100%</h4>
+                            <p className="text-sm text-gray-500 uppercase tracking-widest">Client Satisfaction</p>
+                        </div>
+                    </div>
+                </motion.div>
             </div>
         </div>
     );
