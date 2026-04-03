@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MoreVertical, X } from 'lucide-react';
-import logo from '../../assets/splash-logo-full.png';
+import logoWhite from '../../assets/dotnet-logo.png';
+import logoDark from '../../assets/dotnet-logo-dark.png';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -10,10 +11,8 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Home', path: '/#home' },
         { name: 'About Us', path: '/#about' },
-        { name: 'Projects', path: '/#projects' },
         { name: 'Showcase', path: '/#showcase' },
-        { name: 'Packages', path: '/#packages' },
-        { name: 'Mission 30', path: '/mission30' },
+        { name: 'Services', path: '/#services' },
         { name: 'Contact', path: '/#contact' },
     ];
 
@@ -26,53 +25,54 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 bg-[#211282] border-b border-white/10 rounded-b-[2.5rem] ${scrolled ? 'shadow-lg py-3' : 'shadow-md py-4'}`}>
-            <div className="container mx-auto px-4 md:px-8 flex justify-between items-center relative">
-                <Link to="/#home" className="flex items-center gap-3">
-                    <img src={logo} alt="Spectra Creative Logo" className="h-10 md:h-12 w-auto object-contain brightness-0 invert" />
-                    <span className="text-white font-bold text-lg md:text-xl tracking-wide hidden sm:block"></span>
-                </Link>
+        <div className="fixed top-0 w-full z-50 px-4 md:px-8 pt-3">
+            <nav className={`mx-auto max-w-7xl transition-all duration-500 rounded-2xl border ${scrolled ? 'bg-[#0a0a0a]/80 backdrop-blur-xl shadow-2xl shadow-black/30 py-2.5 border-white/10' : 'bg-white/5 backdrop-blur-lg shadow-lg py-3 border-white/10'}`}>
+                <div className="px-5 md:px-8 flex justify-between items-center relative">
+                    <Link to="/#home" className="flex items-center gap-3">
+                        <img src={logoWhite} alt="Dotnet Logo" className="h-10 md:h-12 w-auto object-contain transition-all duration-300" />
+                    </Link>
 
-                {/* Desktop Nav Links */}
-                <div className="hidden md:flex items-center gap-8">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            to={link.path}
-                            className="font-medium transition-colors hover:text-brand-third text-white text-base"
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-                </div>
-
-                {/* Mobile Menu Button */}
-                <button
-                    className="md:hidden text-white p-2"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? <X size={24} /> : <MoreVertical size={24} />}
-                </button>
-
-                {/* Mobile Dropdown */}
-                {isMobileMenuOpen && (
-                    <div className="absolute top-full right-4 mt-2 w-48 bg-white rounded-xl shadow-xl overflow-hidden md:hidden animate-in fade-in slide-in-from-top-5">
-                        <div className="flex flex-col py-2">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    to={link.path}
-                                    className="px-4 py-3 text-sm font-medium text-gray-700 hover:bg-brand-primary/5 hover:text-brand-primary transition-colors border-b last:border-none border-gray-100"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </div>
+                    {/* Desktop Nav Links */}
+                    <div className="hidden md:flex items-center gap-6 lg:gap-8">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                to={link.path}
+                                className="font-medium transition-all duration-300 text-sm lg:text-base text-gray-400 hover:text-white relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#51084d] after:transition-all after:duration-300 hover:after:w-full"
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
                     </div>
-                )}
-            </div>
-        </nav>
+
+                    {/* Mobile Menu Button */}
+                    <button
+                        className="md:hidden text-white p-2 rounded-xl hover:bg-white/10 transition-all"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <MoreVertical size={24} />}
+                    </button>
+
+                    {/* Mobile Dropdown - Glassmorphism Dark */}
+                    {isMobileMenuOpen && (
+                        <div className="absolute top-full right-0 mt-3 w-56 bg-[#141414]/90 backdrop-blur-2xl rounded-2xl shadow-2xl overflow-hidden md:hidden border border-white/10">
+                            <div className="flex flex-col py-3">
+                                {navLinks.map((link) => (
+                                    <Link
+                                        key={link.name}
+                                        to={link.path}
+                                        className="px-5 py-3 text-sm font-medium text-gray-400 hover:bg-white/5 hover:text-white transition-all border-b last:border-none border-white/5"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </nav>
+        </div>
     );
 };
 

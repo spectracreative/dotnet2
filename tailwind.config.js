@@ -7,13 +7,13 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#211282',
-          secondary: '#1e1178',
-          third: '#f8f8f8',
+          primary: '#51084d',
+          secondary: '#ffe600',
+          third: '#ffffff',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Outfit', 'sans-serif'],
         handwriting: ['Pacifico', 'cursive'],
       }
     },

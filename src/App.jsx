@@ -3,7 +3,6 @@ import { AnimatePresence } from 'framer-motion';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import HomeContent from './pages/HomeContent';
-import Mission30 from './pages/Mission30';
 import SplashScreen from './components/common/SplashScreen';
 import ScrollToHash from './components/common/ScrollToHash';
 
@@ -23,7 +22,6 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<HomeContent />} />
-            <Route path="/mission30" element={<Mission30 />} />
           </Routes>
         </Layout>
       )}

@@ -33,12 +33,12 @@ app.post('/api/contact', async (req, res) => {
 
     const mailOptions = {
         from: `"${name}" <${email}>`,
-        to: process.env.EMAIL_TO || 'creativespectra0@gmail.com', // Default to specified email
+        to: process.env.EMAIL_TO || 'dotnetmarketing.ads@gmail.com', // Default to specified email
         subject: `New Inquiry from ${name} - ${service || 'General'}`,
         text: `Name: ${name}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message}`,
         html: `
             <div style="font-family: sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-                <h2 style="color: #211282;">New Website Inquiry</h2>
+                <h2 style="color: #51084d;">New Website Inquiry</h2>
                 <p><strong>Name:</strong> ${name}</p>
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Service:</strong> ${service}</p>

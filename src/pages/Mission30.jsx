@@ -16,7 +16,7 @@ const timelineData = [
     {
         year: '2026',
         title: 'Foundation',
-        description: 'Spectra Creative establishes itself as a premier Digital Marketing Agency, setting the standard for innovation and client success.',
+        description: 'Dotnet establishes itself as a premier Digital Marketing Agency, setting the standard for innovation and client success.',
         icon: Target,
         hasGallery: true,
         images: placeholderImages
@@ -31,7 +31,7 @@ const timelineData = [
     },
     {
         year: '2027-2028',
-        title: 'Spectra Studio',
+        title: 'Dotnet Studio',
         description: 'Launching a comprehensive creative hub featuring an Editing Suite, Product Studio, and Podcast Studio available for the public and collaborators.',
         icon: Mic,
         hasGallery: true,
@@ -39,8 +39,8 @@ const timelineData = [
     },
     {
         year: '2028',
-        title: 'Spectra Academy',
-        description: 'Empowering the next generation of creatives through specialized training and workshops at Spectra Academy.',
+        title: 'Dotnet Academy',
+        description: 'Empowering the next generation of creatives through specialized training and workshops at Dotnet Academy.',
         icon: GraduationCap,
         hasGallery: true,
         images: placeholderImages
@@ -56,7 +56,7 @@ const timelineData = [
     {
         year: '2030',
         title: 'Mission Complete',
-        description: 'Solidifying "Spectra Creative" as a globally recognized brand, celebrated for professional imagery and excellence.',
+        description: 'Solidifying "Dotnet" as a globally recognized brand, celebrated for professional imagery and excellence.',
         icon: Camera,
         hasGallery: true,
         images: placeholderImages
@@ -100,14 +100,14 @@ const Mission30 = () => {
     };
 
     return (
-        <div className="pt-24 pb-20 min-h-screen bg-brand-third/30 relative overflow-hidden">
+        <div className="pt-24 pb-20 min-h-screen bg-[#0a0a0a] relative overflow-hidden">
             {/* Background Texture Logo */}
             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] md:w-[1200px] opacity-[0.05] pointer-events-none z-0">
                 <img
                     src={bgLogo}
                     alt=""
                     className="w-full h-auto"
-                    style={{ filter: 'invert(8%) sepia(100%) saturate(7000%) hue-rotate(247deg) brightness(100%) contrast(144%)' }}
+                    style={{ filter: 'invert(1) opacity(0.03)' }}
                 />
             </div>
 
@@ -117,8 +117,8 @@ const Mission30 = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center mb-16"
                 >
-                    <span className="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4 block">Our Roadmap</span>
-                    <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6">Mission <span className="text-brand-primary">2030</span></h1>
+                    <span className="text-[#8b1a85] font-bold tracking-widest uppercase text-sm mb-4 block">Our Roadmap</span>
+                    <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6">Mission <span className="text-[#8b1a85]">2030</span></h1>
                     <p className="text-xl text-gray-500 max-w-2xl mx-auto">
                         A decade of vision, growth, and creative excellence. Here is our path to the future.
                     </p>
@@ -126,7 +126,7 @@ const Mission30 = () => {
 
                 <div className="relative max-w-4xl mx-auto">
                     {/* Vertical Line */}
-                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-brand-primary/20 -translate-x-1/2 md:translate-x-0 rounded-full" />
+                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-white/10 -translate-x-1/2 md:translate-x-0 rounded-full" />
 
                     <div className="space-y-12">
                         {timelineData.map((item, index) => (
@@ -142,18 +142,18 @@ const Mission30 = () => {
                                 <div className="hidden md:block flex-1" />
 
                                 {/* Icon Node */}
-                                <div className="absolute left-4 md:left-1/2 w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center -translate-x-1/2 border-4 border-white shadow-lg z-10 transition-transform hover:scale-110">
+                                <div className="absolute left-4 md:left-1/2 w-12 h-12 bg-[#51084d] text-[#0a0a0a] rounded-full flex items-center justify-center -translate-x-1/2 border-4 border-[#0a0a0a] shadow-lg z-10 transition-transform hover:scale-110">
                                     <item.icon size={20} />
                                 </div>
 
                                 {/* Content Card */}
                                 <div className="flex-1 ml-12 md:ml-0">
-                                    <div className={`bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all border border-gray-100 group ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                                        <div className={`inline-block px-3 py-1 bg-brand-primary/10 text-brand-primary rounded-full text-sm font-bold mb-4 ${index % 2 === 0 ? 'md:mr-auto' : ''}`}>
+                                    <div className={`bg-[#141414] p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all border border-white/5 hover:border-white/20 group ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                                        <div className={`inline-block px-3 py-1 bg-[#51084d]/10 text-[#8b1a85] rounded-full text-sm font-bold mb-4 ${index % 2 === 0 ? 'md:mr-auto' : ''}`}>
                                             {item.year}
                                         </div>
-                                        <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-primary transition-colors">{item.title}</h3>
-                                        <p className="text-gray-600 leading-relaxed mb-4">
+                                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#8b1a85] transition-colors">{item.title}</h3>
+                                        <p className="text-gray-500 leading-relaxed mb-4">
                                             {item.description}
                                         </p>
 
@@ -162,7 +162,7 @@ const Mission30 = () => {
                                                 whileHover={{ scale: 1.05 }}
                                                 whileTap={{ scale: 0.95 }}
                                                 onClick={() => openGallery(item.images)}
-                                                className={`inline-flex items-center gap-2 px-4 py-2 bg-brand-primary text-white text-sm font-medium rounded-lg hover:bg-brand-secondary transition-colors ${index % 2 === 0 ? 'float-right' : ''}`}
+                                                className={`inline-flex items-center gap-2 px-4 py-2 bg-[#51084d] text-[#0a0a0a] text-sm font-medium rounded-lg hover:bg-[#ffd000] transition-colors ${index % 2 === 0 ? 'float-right' : ''}`}
                                             >
                                                 <ImageIcon size={16} />
                                                 View Gallery

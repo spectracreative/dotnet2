@@ -1,8 +1,7 @@
 import Home from './Home';
 import About from './About';
-import Projects from './Projects';
 import Showcase from './Showcase';
-import Packages from './Packages';
+import Services from './Services';
 import Contact from './Contact';
 import Collaboration from './Collaboration';
 import BrandGallery from '../components/home/BrandGallery';
@@ -17,14 +16,11 @@ const HomeContent = () => {
             <section id="about">
                 <About />
             </section>
-            <section id="projects">
-                <Projects />
-            </section>
             <section id="showcase">
                 <Showcase />
             </section>
-            <section id="packages">
-                <Packages />
+            <section id="services">
+                <Services />
             </section>
             <section id="brands">
                 <BrandGallery />

@@ -54,7 +54,7 @@ const GravityHero = () => {
 
         // Falling Elements
         const words = ['Design', 'Creative', 'Brand', 'Strategy', 'Interactive', 'Web', 'Mobile', 'Innovate'];
-        const colors = ['#211282', '#1e1178', '#f8f8f8', '#3b82f6', '#ec4899'];
+        const colors = ['#51084d', '#51084d', '#ffffff', '#7b1a6e', '#d4a800'];
 
         const elements = [];
 
