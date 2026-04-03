@@ -33,10 +33,32 @@ const Showcase = () => {
               key={i}
               layoutId={flyer.title}
               onClick={() => setSelectedFlyer(flyer)}
-              whileHover={{ scale: 1.02 }}
-              className="absolute w-64 h-80 bg-[#141414] rounded-xl shadow-lg border border-white/5 cursor-pointer overflow-hidden"
+              initial={{ 
+                x: i * 20, 
+                y: -i * 15, 
+                rotate: i % 2 === 0 ? -(i*2) : (i*2),
+                opacity: 0,
+                scale: 0.9
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1
+              }}
+              whileHover={{ 
+                scale: 1.08, 
+                x: i * 25 + (i % 2 === 0 ? -30 : 30),
+                y: -i * 15 - 20,
+                rotate: 0, 
+                zIndex: 50 
+              }}
+              transition={{ 
+                type: "spring", 
+                stiffness: 300, 
+                damping: 20,
+                delay: i * 0.1 
+              }}
+              className="absolute w-72 h-[22rem] bg-[#141414] rounded-xl shadow-2xl border border-white/10 cursor-pointer overflow-hidden transition-colors hover:border-[#51084d]"
               style={{
-                transform: `translate(${i * 10}px, ${-i * 10}px) rotate(${i % 2 === 0 ? '-2' : '2'}deg)`,
                 zIndex: flyers.length - i,
               }}
             >
