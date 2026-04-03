@@ -44,15 +44,22 @@ const Contact = () => {
     return (
         <div className="pt-24 pb-20">
             <div className="container mx-auto px-4 md:px-8">
-                <div className="text-center mb-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-16"
+                >
                     <h1 className="text-4xl font-bold mb-2 text-white">Get In <span className="text-[#8b1a85]">Touch</span></h1>
                     <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: 100 }}
+                        transition={{ delay: 0.5, duration: 0.8 }}
                         className="h-1 bg-[#51084d] mx-auto rounded-full"
                     />
                     <p className="mt-4 text-gray-500 max-w-xl mx-auto">We'd love to hear from you. Whether you have a question or need a quote, use the form below or drop us an email.</p>
-                </div>
+                </motion.div>
 
                 <div className="flex flex-col gap-12 max-w-6xl mx-auto">
                     {/* Contact Info Cards */}
@@ -82,9 +89,10 @@ const Contact = () => {
 
                     {/* Contact Form */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ delay: 0.2, duration: 0.8 }}
                         className="w-full bg-[#141414] rounded-[2.5rem] shadow-2xl p-8 md:p-12 border border-white/5"
                     >
                         <h3 className="text-2xl font-bold mb-6 text-white">Send us a Message</h3>

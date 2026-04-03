@@ -11,12 +11,24 @@ const brands = [
 const BrandGalleryMotion = () => {
     return (
         <section className="py-20 overflow-hidden border-t border-b border-white/5">
-            <div className="container mx-auto px-4 md:px-8 mb-12 text-center">
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8 }}
+                className="container mx-auto px-4 md:px-8 mb-12 text-center"
+            >
                 <h2 className="text-3xl font-bold text-white">Brands We Work With</h2>
                 <p className="text-gray-500 mt-2">Trusted by industry leaders.</p>
-            </div>
+            </motion.div>
 
-            <div className="flex">
+            <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.3 }}
+                className="flex"
+            >
                 <motion.div
                     className="flex gap-16 items-center whitespace-nowrap"
                     animate={{ x: [0, -1035] }}
@@ -34,7 +46,7 @@ const BrandGalleryMotion = () => {
                         </div>
                     ))}
                 </motion.div>
-            </div>
+            </motion.div>
         </section>
     );
 };

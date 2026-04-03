@@ -52,8 +52,10 @@ const Collaboration = () => {
             <div className="container mx-auto px-4 md:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.8 }}
                     >
                         <h1 className="text-5xl font-bold leading-tight mb-6 text-white">Let's <span className="text-[#8b1a85]">Collaborate</span> & Create Magic.</h1>
                         <p className="text-lg text-gray-400 mb-8">
@@ -66,7 +68,14 @@ const Collaboration = () => {
                                 { icon: Zap, title: 'Creative Synergy', desc: 'Combining our design prowess with your expertise.' },
                                 { icon: Globe, title: 'Global Reach', desc: 'Expanding horizons together.' }
                             ].map((item, i) => (
-                                <div key={i} className="flex gap-4">
+                                <motion.div 
+                                    key={i} 
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.3 + (i * 0.1) }}
+                                    className="flex gap-4"
+                                >
                                     <div className="w-12 h-12 rounded-full bg-[#141414] border border-white/5 flex items-center justify-center text-[#8b1a85] shrink-0">
                                         <item.icon size={24} />
                                     </div>
@@ -74,14 +83,16 @@ const Collaboration = () => {
                                         <h3 className="font-bold text-white">{item.title}</h3>
                                         <p className="text-sm text-gray-500">{item.desc}</p>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
                         className="bg-[#141414] p-8 rounded-[2.5rem] shadow-2xl border border-white/5"
                     >
                         <h3 className="text-2xl font-bold mb-6 text-white">Partner With Us</h3>

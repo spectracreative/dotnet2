@@ -99,10 +99,16 @@ const Home = () => {
             {/* Features Section */}
             <section className="py-24">
                 <div className="container mx-auto px-4 md:px-8">
-                    <div className="text-center max-w-2xl mx-auto mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center max-w-2xl mx-auto mb-16"
+                    >
                         <h2 className="text-4xl font-bold text-white mb-4">Why Choose Us?</h2>
                         <p className="text-gray-500">We bring your vision to life with cutting-edge technology and stunning aesthetics.</p>
-                    </div>
+                    </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {[

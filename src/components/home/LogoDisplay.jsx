@@ -6,8 +6,9 @@ const LogoDisplay = () => {
     return (
         <section className="min-h-[50vh] flex flex-col items-center justify-center py-20 border-t border-white/5">
             <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
+                initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.8 }}
                 className="flex flex-col items-center gap-6"
             >

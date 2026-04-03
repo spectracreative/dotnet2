@@ -100,11 +100,17 @@ const Showcase = () => {
   return (
     <div className="pt-24 pb-20" ref={containerRef}>
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
           <h1 className="text-4xl font-bold text-white uppercase tracking-widest">
             <span className="text-[#51084d]">Showcase</span>
           </h1>
-        </div>
+        </motion.div>
 
         {/* Stacked card layout with scroll-driven scatter explosion */}
         <div className="relative flex justify-center items-center h-[600px] w-full">

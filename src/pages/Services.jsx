@@ -33,10 +33,16 @@ const Services = () => {
     return (
         <div className="pt-24 pb-20">
             <div className="container mx-auto px-4 md:px-8">
-                <div className="text-center mb-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-16"
+                >
                     <h1 className="text-4xl font-bold text-white">Our <span className="text-[#8b1a85]">Services</span></h1>
                     <p className="text-gray-500 max-w-xl mx-auto mt-4">End-to-end digital solutions to help your brand grow, dominate, and stand out.</p>
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {services.map((service, i) => (

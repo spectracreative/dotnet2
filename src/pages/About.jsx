@@ -6,8 +6,10 @@ const About = () => {
         <div className="pt-24 pb-20">
             <div className="container mx-auto px-4 md:px-8">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.8 }}
                     className="max-w-4xl mx-auto text-center mb-16"
                 >
                     <span className="text-[#8b1a85] font-bold tracking-widest uppercase text-sm mb-4 block">Our Story</span>
@@ -20,7 +22,8 @@ const About = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
                     className="max-w-3xl mx-auto text-center"
                 >
                     <h2 className="text-3xl font-bold mb-6 text-white">Why We Exist</h2>
