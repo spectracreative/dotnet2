@@ -33,7 +33,7 @@ const Services = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 className="text-7xl md:text-[12rem] font-black leading-[0.8] tracking-tighter text-white">
+                        <h1 className="text-6xl md:text-[8rem] font-black leading-[0.9] tracking-tighter text-white">
                             OUR <br /> SERVICES
                         </h1>
                     </motion.div>
