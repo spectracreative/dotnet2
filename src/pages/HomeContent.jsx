@@ -16,9 +16,9 @@ const HomeContent = () => {
             <section id="about">
                 <About />
             </section>
-            <section id="showcase">
+            {/* <section id="showcase">
                 <Showcase />
-            </section>
+            </section> */}
             <section id="services">
                 <Services />
             </section>
