@@ -1,85 +1,101 @@
 import { motion } from 'framer-motion';
-import { Megaphone, Code, Video, Palette, ArrowRight } from 'lucide-react';
-import Button from '../components/common/Button';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const services = [
-    {
-        icon: Megaphone,
-        title: 'Digital Marketing',
-        desc: 'Strategic campaigns that amplify your brand presence across all digital platforms. From SEO to social media, we drive measurable growth.',
-        features: ['Social Media Marketing', 'SEO & SEM', 'Content Strategy', 'Analytics & Reporting'],
-    },
-    {
-        icon: Code,
-        title: 'Web Development',
-        desc: 'High-performance websites and web applications built with modern tech stacks. Fast, responsive, and conversion-optimized.',
-        features: ['Custom Websites', 'E-commerce Solutions', 'Web Applications', 'CMS Integration'],
-    },
-    {
-        icon: Video,
-        title: 'Video Production',
-        desc: 'Compelling video content that tells your brand story. From concept to post-production, we create visuals that captivate.',
-        features: ['Commercial Videos', 'Social Media Reels', 'Product Demos', 'Motion Graphics'],
-    },
-    {
-        icon: Palette,
-        title: 'Branding',
-        desc: 'Complete brand identity systems that make you unforgettable. Logos, guidelines, and visual assets that define who you are.',
-        features: ['Logo Design', 'Brand Guidelines', 'Visual Identity', 'Stationery Design'],
-    },
+    { title: 'DIGITAL MARKETING', variant: 'filled' },
+    { title: 'ADVERTISING', variant: 'outline' },
+    { title: 'BRANDING', variant: 'outline' },
+    { title: 'GRAPHIC & WEB DESIGN', variant: 'filled' },
+    { title: 'SOCIAL MEDIA MANAGEMENT', variant: 'filled' },
+    { title: 'BRANDING', variant: 'outline' },
 ];
 
 const Services = () => {
     return (
-        <div className="pt-24 pb-20">
-            <div className="container mx-auto px-4 md:px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.2 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
-                >
-                    <h1 className="text-4xl font-bold text-white">Our <span className="text-[#8b1a85]">Services</span></h1>
-                    <p className="text-gray-500 max-w-xl mx-auto mt-4">End-to-end digital solutions to help your brand grow, dominate, and stand out.</p>
-                </motion.div>
+        <div className="relative min-h-screen bg-[#0a0a0a] overflow-hidden pt-32 pb-20">
+            {/* Grid Overlay */}
+            <div 
+                className="absolute inset-0 opacity-10 pointer-events-none"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(to right, #ffffff 1px, transparent 1px),
+                        linear-gradient(to bottom, #ffffff 1px, transparent 1px)
+                    `,
+                    backgroundSize: '80px 80px'
+                }}
+            ></div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-start mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h1 className="text-7xl md:text-[12rem] font-black leading-[0.8] tracking-tighter text-white">
+                            OUR <br /> SERVICES
+                        </h1>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="mt-8 md:mt-4 md:ml-10"
+                    >
+                        <Link 
+                            to="/contact" 
+                            className="text-xl md:text-2xl font-bold text-white underline underline-offset-8 decoration-2 hover:text-brand-primary transition-colors"
+                        >
+                            WORK <br /> WITH US
+                        </Link>
+                    </motion.div>
+                </div>
+
+                <div className="flex flex-wrap gap-4 md:gap-8 items-center max-w-6xl">
                     {services.map((service, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false }}
-                            transition={{ delay: i * 0.1 }}
-                            className="group p-8 md:p-10 rounded-2xl bg-[#141414] border border-white/5 hover:border-[#51084d]/50 transition-all duration-500 hover:bg-[#1a1a1a]"
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                            transition={{ 
+                                duration: 0.5, 
+                                delay: i * 0.1,
+                                type: "spring",
+                                stiffness: 100
+                            }}
+                            whileHover={{ scale: 1.05, rotate: i % 2 === 0 ? 1 : -1 }}
+                            className={`
+                                px-8 py-4 md:px-12 md:py-6 rounded-full text-lg md:text-2xl font-bold tracking-tight cursor-default transition-all duration-300
+                                ${service.variant === 'filled' 
+                                    ? 'bg-white text-black hover:bg-black hover:text-white border-2 border-white' 
+                                    : 'border-2 border-white text-white hover:bg-white hover:text-black'}
+                                ${i === 1 ? 'mt-0 md:mt-12' : ''}
+                                ${i === 3 ? 'ml-0 md:ml-20' : ''}
+                                ${i === 4 ? 'mt-0 md:-mt-8' : ''}
+                            `}
                         >
-                            <div className="w-14 h-14 rounded-2xl bg-[#51084d]/20 flex items-center justify-center mb-6 group-hover:bg-[#51084d]/30 transition-colors">
-                                <service.icon size={28} className="text-[#8b1a85]" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
-                            <p className="text-gray-500 mb-6 leading-relaxed">{service.desc}</p>
-                            <ul className="space-y-3 mb-8">
-                                {service.features.map((feat, idx) => (
-                                    <li key={idx} className="flex items-center gap-3 text-gray-400">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#51084d]" />
-                                        <span className="text-sm">{feat}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <Button
-                                variant="outline"
-                                className="text-sm py-2.5 px-5"
-                                onClick={() => window.location.href = '#contact'}
-                            >
-                                Get Started <ArrowRight size={16} />
-                            </Button>
+                            {service.title}
                         </motion.div>
                     ))}
                 </div>
+
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 1 }}
+                    className="mt-32 border-t border-white/10 pt-10"
+                >
+                    <p className="text-gray-500 text-lg max-w-2xl">
+                        We don't just provide services; we craft digital experiences that resonate and drive results. 
+                        Every pixel, every strategy, every line of code is intentional.
+                    </p>
+                </motion.div>
             </div>
         </div>
     );
 };
 
 export default Services;
+
