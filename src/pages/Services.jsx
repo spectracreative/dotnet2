@@ -44,12 +44,12 @@ const Services = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="mt-8 md:mt-4 md:ml-10"
                     >
-                        <Link 
-                            to="/contact" 
+                        <a 
+                            href="#contact" 
                             className="text-xl md:text-2xl font-bold text-white underline underline-offset-8 decoration-2 hover:text-brand-primary transition-colors"
                         >
                             WORK <br /> WITH US
-                        </Link>
+                        </a>
                     </motion.div>
                 </div>
 
