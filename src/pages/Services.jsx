@@ -8,7 +8,7 @@ const services = [
     { title: 'BRANDING', variant: 'outline' },
     { title: 'GRAPHIC & WEB DESIGN', variant: 'filled' },
     { title: 'SOCIAL MEDIA MANAGEMENT', variant: 'filled' },
-    { title: 'BRANDING', variant: 'outline' },
+    { title: 'VIDEO PRODUCTION', variant: 'outline' },
 ];
 
 const Services = () => {
