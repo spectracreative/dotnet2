@@ -61,9 +61,32 @@ const TextRotator = ({ text }) => {
 
 const Home = () => {
     return (
-        <div className="overflow-hidden">
-            {/* Hero Section — Clean dark, no background textures */}
-            <section className="relative min-h-screen flex items-center pt-20">
+        <div className="overflow-hidden bg-[#0a0a0a]">
+            {/* Hero Section — Planet Horizon Effect */}
+            <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+                {/* Background Effects */}
+                <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+                    {/* The Ribbed Vertical Lines */}
+                    <motion.div 
+                        className="absolute inset-0 w-[110%]"
+                        animate={{ x: [0, -40] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                        style={{
+                            backgroundImage: 'repeating-linear-gradient(to right, #050505 0px, rgba(139,26,133,0.4) 20px, #050505 40px)'
+                        }}
+                    ></motion.div>
+
+                    {/* Central highlight / vignette to focus the light in the middle */}
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(10,10,10,1)_80%)]"></div>
+                    
+                    {/* Pulsing ambient glow behind the text to enhance the brand color */}
+                    <motion.div
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-[#8b1a85] mix-blend-screen blur-[150px] rounded-full pointer-events-none"
+                        animate={{ opacity: [0.1, 0.25, 0.1] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    ></motion.div>
+                </div>
+
                 <div className="container mx-auto px-4 md:px-8 relative z-10 flex flex-col items-center text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
