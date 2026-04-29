@@ -72,7 +72,7 @@ const Home = () => {
                         animate={{ x: [0, -40] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                         style={{
-                            backgroundImage: 'repeating-linear-gradient(to right, #050505 0px, rgba(139,26,133,0.4) 20px, #050505 40px)'
+                            backgroundImage: 'repeating-linear-gradient(to right, #050505 0px, rgba(139,26,133,0.08) 20px, #050505 40px)'
                         }}
                     ></motion.div>
 
@@ -82,7 +82,7 @@ const Home = () => {
                     {/* Pulsing ambient glow behind the text to enhance the brand color */}
                     <motion.div
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-[#8b1a85] mix-blend-screen blur-[150px] rounded-full pointer-events-none"
-                        animate={{ opacity: [0.1, 0.25, 0.1] }}
+                        animate={{ opacity: [0.04, 0.08, 0.04] }}
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                     ></motion.div>
                 </div>

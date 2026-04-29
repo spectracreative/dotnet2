@@ -6,6 +6,7 @@ import logoDark from '../../assets/dotnet-logo-dark.png';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [hidden, setHidden] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const navLinks = [
@@ -16,15 +17,28 @@ const Navbar = () => {
     ];
 
     useEffect(() => {
+        let lastScrollY = window.scrollY;
+
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            const currentScrollY = window.scrollY;
+            setScrolled(currentScrollY > 50);
+
+            // Hide navbar on scroll down, show on scroll up
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                setHidden(true);
+                setIsMobileMenuOpen(false); // Auto-close mobile menu on scroll down
+            } else {
+                setHidden(false);
+            }
+            lastScrollY = currentScrollY;
         };
-        window.addEventListener('scroll', handleScroll);
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
-        <div className="fixed top-0 w-full z-50 px-4 md:px-8 pt-3">
+        <div className={`fixed top-0 w-full z-50 px-4 md:px-8 pt-3 transition-transform duration-500 ease-in-out ${hidden ? '-translate-y-[150%]' : 'translate-y-0'}`}>
             <nav className={`mx-auto max-w-7xl transition-all duration-500 rounded-2xl border ${scrolled ? 'bg-[#51084d]/90 backdrop-blur-xl shadow-2xl shadow-black/30 py-2.5 border-white/20' : 'bg-[#51084d]/40 backdrop-blur-lg shadow-lg py-3 border-white/20'}`}>
                 <div className="px-5 md:px-8 flex justify-between items-center relative">
                     <Link to="/#home" className="flex items-center gap-3">
