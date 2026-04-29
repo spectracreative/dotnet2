@@ -138,9 +138,9 @@ const Contact = () => {
                                     <label className="text-sm font-semibold text-gray-400">Interested Package (Optional)</label>
                                     <select name="package" className="w-full p-4 bg-[#0a0a0a] rounded-xl border border-white/10 focus:border-[#51084d] focus:ring-0 transition-all text-white">
                                         <option value="">None / Custom</option>
-                                        <option>Starter ($499)</option>
-                                        <option>Professional ($1299)</option>
-                                        <option>Enterprise ($2999)</option>
+                                        <option>Starter</option>
+                                        <option>Professional</option>
+                                        <option>Enterprise</option>
                                     </select>
                                 </div>
 
